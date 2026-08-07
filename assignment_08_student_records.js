@@ -82,6 +82,132 @@
 
 // =============================================================================
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+// Console-Based Student Management System
+
+let students = [];
+
+// Add a new student
+function addStudent() {
+    let name = prompt("Enter student's full name:");
+    let id = Number(prompt("Enter student ID:"));
+    let scores = prompt("Enter scores separated by commas:")
+        .split(",")
+        .map(Number);
+
+    students.push({
+        name: name,
+        id: id,
+        scores: scores
+    });
+
+    console.log("Student added successfully!");
+}
+
+// View all students
+function viewStudents() {
+    if (students.length === 0) {
+        console.log("No students found.");
+        return;
+    }
+
+    console.log("\nStudent Records");
+    students.forEach(student => {
+        console.log("----------------------------");
+        console.log("Name: " + student.name);
+        console.log("ID: " + student.id);
+        console.log("Scores: " + student.scores.join(", "));
+    });
+}
+
+// Calculate average score
+function calculateAverage(scores) {
+    let sum = 0;
+
+    for (let score of scores) {
+        sum += score;
+    }
+
+    return (sum / scores.length).toFixed(2);
+}
+
+// View student averages
+function viewAverages() {
+    if (students.length === 0) {
+        console.log("No students found.");
+        return;
+    }
+
+    console.log("\nStudent Averages");
+    students.forEach(student => {
+        console.log(
+            student.name +
+            " (ID: " + student.id + ")" +
+            " - Average: " +
+            calculateAverage(student.scores)
+        );
+    });
+}
+
+// Search student by ID
+function searchStudent() {
+    let id = Number(prompt("Enter student ID to search:"));
+
+    let student = students.find(s => s.id === id);
+
+    if (student) {
+        console.log("\nStudent Found");
+        console.log("Name: " + student.name);
+        console.log("ID: " + student.id);
+        console.log("Scores: " + student.scores.join(", "));
+        console.log("Average: " + calculateAverage(student.scores));
+    } else {
+        console.log("Student not found.");
+    }
+}
+
+// Display menu
+function showMenu() {
+    console.log("\n===== STUDENT MANAGEMENT SYSTEM =====");
+    console.log("1. Add Student");
+    console.log("2. View All Students");
+    console.log("3. View Student Averages");
+    console.log("4. Search Student by ID");
+    console.log("5. Exit");
+}
+
+// Main Program
+let choice;
+
+do {
+    showMenu();
+    choice = Number(prompt("Enter your choice:"));
+
+    switch (choice) {
+        case 1:
+            addStudent();
+            break;
+
+        case 2:
+            viewStudents();
+            break;
+
+        case 3:
+            viewAverages();
+            break;
+
+        case 4:
+            searchStudent();
+            break;
+
+        case 5:
+            console.log("Exiting program...");
+            break;
+
+        default:
+            console.log("Invalid choice. Try again.");
+    }
+
+} while (choice !== 5);
 // =============================================================================
 
 

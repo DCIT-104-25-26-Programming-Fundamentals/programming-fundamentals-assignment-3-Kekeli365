@@ -66,6 +66,71 @@
 
 // =============================================================================
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+// Function to add two matrices
+function addMatrices(matrix1, matrix2) {
+    let result = [];
+
+    for (let i = 0; i < matrix1.length; i++) {
+        result[i] = [];
+        for (let j = 0; j < matrix1[0].length; j++) {
+            result[i][j] = matrix1[i][j] + matrix2[i][j];
+        }
+    }
+
+    return result;
+}
+
+// Function to subtract two matrices
+function subtractMatrices(matrix1, matrix2) {
+    let result = [];
+
+    for (let i = 0; i < matrix1.length; i++) {
+        result[i] = [];
+        for (let j = 0; j < matrix1[0].length; j++) {
+            result[i][j] = matrix1[i][j] - matrix2[i][j];
+        }
+    }
+
+    return result;
+}
+
+// Function to transpose a matrix
+function transposeMatrix(matrix) {
+    let result = [];
+
+    for (let i = 0; i < matrix[0].length; i++) {
+        result[i] = [];
+        for (let j = 0; j < matrix.length; j++) {
+            result[i][j] = matrix[j][i];
+        }
+    }
+
+    return result;
+}
+
+// Example matrices
+let matrix1 = [
+    [1, 2],
+    [3, 4]
+];
+
+let matrix2 = [
+    [5, 6],
+    [7, 8]
+];
+
+// Display results
+console.log("Matrix 1:", matrix1);
+console.log("Matrix 2:", matrix2);
+
+console.log("Addition:");
+console.log(addMatrices(matrix1, matrix2));
+
+console.log("Subtraction:");
+console.log(subtractMatrices(matrix1, matrix2));
+
+console.log("Transpose of Matrix 1:");
+console.log(transposeMatrix(matrix1));
 // =============================================================================
 
 const readlineSync = require('readline-sync');

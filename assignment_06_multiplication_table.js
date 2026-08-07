@@ -57,6 +57,21 @@
 //
 // =============================================================================
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+// Function to generate the multiplication table
+function multiplicationTable(number) {
+    console.log("Multiplication Table for " + number);
+
+    for (let i = 1; i <= 12; i++) {
+        console.log(number + " x " + i + " = " + (number * i));
+    }
+}
+
+// Read a number from the user
+let num = parseInt(prompt("Enter a number:"));
+
+// Call the function
+multiplicationTable(num);
+// and functions.
 // =============================================================================
 
 

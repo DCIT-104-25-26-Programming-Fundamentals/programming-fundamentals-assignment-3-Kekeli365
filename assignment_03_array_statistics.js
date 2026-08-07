@@ -41,6 +41,42 @@
 //
 // =============================================================================
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+// Function to calculate the sum
+function getSum(numbers) {
+    let sum = 0;
+    for (let num of numbers) {
+        sum += num;
+    }
+    return sum;
+}
+
+// Function to calculate the average
+function getAverage(numbers) {
+    return getSum(numbers) / numbers.length;
+}
+
+// Function to find the minimum value
+function getMinimum(numbers) {
+    return Math.min(...numbers);
+}
+
+// Function to find the maximum value
+function getMaximum(numbers) {
+    return Math.max(...numbers);
+}
+
+// Read numbers from the user
+let input = prompt("Enter numbers separated by commas:");
+let numbers = input.split(",").map(Number);
+
+// Display the statistical values
+console.log("Numbers:", numbers);
+console.log("Sum:", getSum(numbers));
+console.log("Average:", getAverage(numbers));
+console.log("Minimum:", getMinimum(numbers));
+console.log("Maximum:", getMaximum(numbers));
+// and computes key statistical values using separate functions
+
 // =============================================================================
 
 

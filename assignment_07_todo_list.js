@@ -79,6 +79,79 @@
 //
 // =============================================================================
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+// Simple Console To-Do List Program
+
+let tasks = [];
+
+function showMenu() {
+    console.log("\n===== TO-DO LIST MENU =====");
+    console.log("1. Add Task");
+    console.log("2. View Tasks");
+    console.log("3. Remove Task");
+    console.log("4. Exit");
+}
+
+function addTask() {
+    let task = prompt("Enter a new task:");
+    tasks.push(task);
+    console.log("Task added successfully!");
+}
+
+function viewTasks() {
+    if (tasks.length === 0) {
+        console.log("No tasks available.");
+    } else {
+        console.log("\nYour Tasks:");
+        for (let i = 0; i < tasks.length; i++) {
+            console.log((i + 1) + ". " + tasks[i]);
+        }
+    }
+}
+
+function removeTask() {
+    viewTasks();
+
+    if (tasks.length > 0) {
+        let index = parseInt(prompt("Enter task number to remove:"));
+
+        if (index >= 1 && index <= tasks.length) {
+            tasks.splice(index - 1, 1);
+            console.log("Task removed successfully!");
+        } else {
+            console.log("Invalid task number.");
+        }
+    }
+}
+
+// Main Program
+let choice;
+
+do {
+    showMenu();
+    choice = parseInt(prompt("Choose an option (1-4):"));
+
+    switch (choice) {
+        case 1:
+            addTask();
+            break;
+
+        case 2:
+            viewTasks();
+            break;
+
+        case 3:
+            removeTask();
+            break;
+
+        case 4:
+            console.log("Exiting program. Goodbye!");
+            break;
+
+        default:
+            console.log("Invalid choice. Please try again.");
+    }
+
+} while (choice !== 4);
 // =============================================================================
 
 

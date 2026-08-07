@@ -72,6 +72,76 @@
 //
 // =============================================================================
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+// Console Calculator Program
+
+// Function for addition
+function add(a, b) {
+    return a + b;
+}
+
+// Function for subtraction
+function subtract(a, b) {
+    return a - b;
+}
+
+// Function for multiplication
+function multiply(a, b) {
+    return a * b;
+}
+
+// Function for division
+function divide(a, b) {
+    if (b === 0) {
+        return "Error: Cannot divide by zero.";
+    }
+    return a / b;
+}
+
+// Display menu
+function showMenu() {
+    console.log("\n===== CALCULATOR MENU =====");
+    console.log("1. Addition (+)");
+    console.log("2. Subtraction (-)");
+    console.log("3. Multiplication (*)");
+    console.log("4. Division (/)");
+    console.log("5. Exit");
+}
+
+let choice;
+
+do {
+    showMenu();
+
+    choice = Number(prompt("Enter your choice (1-5):"));
+
+    if (choice >= 1 && choice <= 4) {
+        let num1 = Number(prompt("Enter the first number:"));
+        let num2 = Number(prompt("Enter the second number:"));
+
+        switch (choice) {
+            case 1:
+                console.log("Result = " + add(num1, num2));
+                break;
+
+            case 2:
+                console.log("Result = " + subtract(num1, num2));
+                break;
+
+            case 3:
+                console.log("Result = " + multiply(num1, num2));
+                break;
+
+            case 4:
+                console.log("Result = " + divide(num1, num2));
+                break;
+        }
+    } else if (choice === 5) {
+        console.log("Exiting calculator. Goodbye!");
+    } else {
+        console.log("Invalid choice. Please try again.");
+    }
+
+} while (choice !== 5);
 // =============================================================================
 
 

@@ -52,6 +52,43 @@
 //
 // =============================================================================
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+// Function to generate Fibonacci sequence
+function generateFibonacci(n) {
+    let fib = [0, 1];
+
+    for (let i = 2; i < n; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+    }
+
+    return fib.slice(0, n);
+}
+
+// Function to check if a number is in the Fibonacci sequence
+function isFibonacci(num) {
+    let a = 0, b = 1;
+
+    while (b < num) {
+        let next = a + b;
+        a = b;
+        b = next;
+    }
+
+    return num === 0 || b === num;
+}
+
+// Read input from the user
+let terms = parseInt(prompt("Enter the number of Fibonacci terms:"));
+let number = parseInt(prompt("Enter a number to check:"));
+
+// Display results
+console.log("Fibonacci Sequence:");
+console.log(generateFibonacci(terms));
+
+if (isFibonacci(number)) {
+    console.log(number + " is a Fibonacci number.");
+} else {
+    console.log(number + " is not a Fibonacci number.");
+}
 // =============================================================================
 
 
